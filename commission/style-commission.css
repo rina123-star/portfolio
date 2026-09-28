@@ -23,7 +23,7 @@ h2, h3{
     font-size: clamp(1.8rem,5vw);
 }
 #header{
-    background-image: url(/images/header_2.jpg);
+    background-image: url(/header_2.jpg);
     padding: 22vh 5vw;
     background-size:  cover; /*100%画像の大きさを画面いっぱいに */
     background-repeat: no-repeat; /*画像を繰り返さない*/
