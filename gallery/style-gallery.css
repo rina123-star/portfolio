@@ -1,0 +1,129 @@
+:root{
+    --main:rgb(241, 65, 183); 
+    --accent:rgb(192, 192, 192);
+    --base:rgb(255, 255, 255);
+    --gray:f5f5f5; /* 変数でカラーの指定*/
+    --black:rgb(0, 0, 0);
+}
+*,*::before,*::after{
+    box-sizing: border-box;
+} /*横幅などのサイズ調整のためいれる*/
+body{
+    margin: 0;
+    font-family: sans-serif;
+    line-height: 1.6;
+   /*color: rgb(133, 122, 122);*/
+}
+section{
+    padding: clamp(60px,10vw,120px) 5vw;
+} /*パディングの上下を可変60～120の間に、左右は5vwで固定*/
+h2, h3{
+    text-align: center;
+    margin-bottom: 1rem;
+    font-size: clamp(1.8rem,5vw);
+}
+#header{
+    background-image: url(/header_3.png);
+    padding: 22vh 5vw;
+    background-size:  cover; /*100%画像の大きさを画面いっぱいに */
+    background-repeat: no-repeat; /*画像を繰り返さない*/
+    color: var(--base); /*文字の色を変数で指定*/
+    text-align: center;/*中央寄せ*/
+}
+.page-nav{
+    position:fixed;
+    top: 0;
+    left: 0; /*ナビの場所を左上に指定*/
+    background-color: rgba(255,255,255,0.5);  /*白いヘッダーが透ける#ffffffee or 　rgba(255,255,255,0.8)でも透ける*/
+    width: 100%;
+    backdrop-filter: blur(6px);
+}
+.page-nav ul{
+    display: flex; /*項目を横並びに*/
+    justify-content: center; /*中央寄せ*/
+    gap: 1.2rem; /*項目同士の余白を設定*/
+    list-style: none;
+    padding-left: 0;
+}
+.page-nav ul a{
+    color: #333;
+    text-decoration: none;
+    font-weight: 600; /*中央寄せフォントを太く*/
+    padding: 0.3rem 0.8rem; /*項目ごとの余白をおおきく*/
+    border-radius: 6px; /*マウスを乗せたときの色の四角が角丸になる*/
+    transition: background-color 0.3s; /*カーソルを乗せたとき0.3秒かけて背景色がつく*/
+}
+.page-nav ul a:hover{
+    background-color: rgba(250, 250, 250, 0.8); /*カーソルを乗せたとき色がつく*/
+}
+#char{
+    margin: 0 0 1rem;
+}
+#char h4, #char p {
+    width: 70%;
+    margin-left: auto;
+    margin-right: auto;
+    text-align: left;
+}
+#char .float-clear + .float-clear {
+    margin-top: 5rem;
+}
+#char .float-box{
+    width: 100%;
+    display: flex; /* 横並びにして下の記述で画像を中央に */
+    align-items: flex-start; /*画像と動画の上端をそろえる*/
+    justify-content: center;
+    gap: 30px; /*画像と画像の幅をあける*/
+}
+#char .float-box img{
+    max-width: 45%;
+    width: 50%;
+    height: auto;
+}
+#char .float-box video{
+    max-width: none;
+    width: 20%;
+    height: auto;
+}
+#gallery .gallery-list{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+#gallery .gallery-list .gallery{
+    /*flex: 1 1 calc(25% -0.8rem);*/
+    max-width: 400px;
+    min-width: 140px;
+}
+/*カードの大きさをそろえる*/
+#gallery .gallery-list .gallery img, 
+#gallery .gallery-list .gallery video {
+    width: 100%;
+    display: block;
+    transition: transform 0.3s ease; /*カーソルが乗ったら0.3秒かけておおきくなる*/
+    flex-grow: 1; /*右端までアイテムを詰める*/
+    object-fit: cover; /*画像の縦横比を維持*/
+    height: 200px;
+}
+
+#gallery .gallery-list .gallery img:hover{
+    transform: scale(1.05); /*カーソルが乗ったら1.05倍までおおきくなる*/
+}
+#ec{
+    text-align: center;/*中央寄せ*/
+}
+#ec .ec-list{
+    display: flex; 
+    justify-content: center; 
+}
+
+#ec .contact-body p {
+    margin: 0;
+}
+footer{
+    background-color: rgb(241, 65, 183,0.5);
+    text-align: center;
+    padding: 2rem 5vw;
+    font-size: 0.8rem;
+    color: var(--black);
+}
