@@ -1,0 +1,212 @@
+:root{
+    --main:rgb(241, 65, 183); 
+    --accent:rgb(192, 192, 192);
+    --base:rgb(255, 255, 255);
+    --gray:f5f5f5; /* 変数でカラーの指定*/
+    --black:rgb(0, 0, 0);
+}
+*,*::before,*::after{
+    box-sizing: border-box;
+} /*横幅などのサイズ調整のためいれる*/
+body{
+    margin: 0;
+    font-family: sans-serif;
+    line-height: 1.6;
+    color: rgb(0, 0, 0);
+}
+section{
+    padding: clamp(60px,10vw,120px) 5vw;
+} /*パディングの上下を可変60～120の間に、左右は5vwで固定*/
+h2{
+    text-align: center;
+    margin-bottom: 1.5rem;
+    font-size: clamp(1.8rem,5vw);
+}
+#header{
+    background-image: url(/images/com_header.png);
+    padding: 22vh 5vw;
+    background-size:  cover; /*100%画像の大きさを画面いっぱいに */
+    background-repeat: no-repeat; /*画像を繰り返さない*/
+    color: var(--base); /*文字の色を変数で指定*/
+    text-align: center;/*中央寄せ*/
+}
+.page-nav{
+    position:fixed;
+    top: 0;
+    left: 0; /*ナビの場所を左上に指定*/
+    background-color: rgba(255,255,255,0.5);  /*白いヘッダーが透ける#ffffffee or 　rgba(255,255,255,0.8)でも透ける*/
+    width: 100%;
+    backdrop-filter: blur(6px);
+}
+.page-nav ul{
+    display: flex; /*項目を横並びに*/
+    justify-content: center; /*中央寄せ*/
+    gap: 1.2rem; /*項目同士の余白を設定*/
+    list-style: none;
+    padding-left: 0;
+}
+.page-nav ul a{
+    color: #333;
+    text-decoration: none;
+    font-weight: 600; /*中央寄せフォントを太く*/
+    padding: 0.3rem 0.8rem; /*項目ごとの余白をおおきく*/
+    border-radius: 6px; /*マウスを乗せたときの色の四角が角丸になる*/
+    transition: background-color 0.3s; /*カーソルを乗せたとき0.3秒かけて背景色がつく*/
+}
+.page-nav ul a:hover{
+    background-color: rgba(250, 250, 250, 0.8); /*カーソルを乗せたとき色がつく*/
+}
+#work .card-list{
+    display: flex; /*横並びに*/
+    flex-wrap: wrap; /*サイズが大きすぎるときに折り返しになるように*/
+    gap: 1.5rem; /*余白開ける*/
+    justify-content: center; /*中央に*/ 
+}
+.card{ /*cardを横並びにする*/
+    flex: 1 1 calc(50% -1rem); /*カードの大きさが3分の一になる 
+    3つに割る場合は33.333%、２つに割る場合は50% １つの場合は100%*/
+    /* フレックスグロー→1（サイトの余白を1対1にしている） フレックスシュリンク→1（要素がはみ出した時の処理1:1にしておけばよい） フレックスべーシス→calc(33.333% -1rem) 
+    フレックスベーシスに数字を入れる*/
+    background-color: var(--base);
+    border-radius:  12px; /*角丸*/
+    overflow: hidden; /*はみ出したら隠す*/
+    text-align: center;
+    min-width: 260px; /*最低でも260px以下にならないようにするサイトの表示を小さくしたときなど*/
+    max-width: 100%;
+}
+
+#work .card-list .card img{
+transition: transform 0.3s ease; /*カーソルが乗ったら0.3秒かけておおきくなる*/
+}
+#work .card-list .card img:hover{
+    transform: scale(1.05); /*カーソルが乗ったら1.05倍までおおきくなる*/
+}
+.card h3{
+margin: 0.5rem 0; /*h3の上下の余白を作る*/
+}
+#gallery .gallery-list{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+#gallery .gallery-list .gallery{
+    /*flex: 1 1 calc(25% -0.8rem);*/
+    max-width: 400px;
+    min-width: 140px;
+}
+/*カードの大きさをそろえる*/
+#gallery .gallery-list .gallery img{
+    width: 100%;
+    display: block;
+    transition: transform 0.3s ease; /*カーソルが乗ったら0.3秒かけておおきくなる*/
+    flex-grow: 1; /*右端までアイテムを詰める*/
+    object-fit: cover; /*画像の縦横比を維持*/
+    height: 200px;
+}
+#gallery .gallery-list .gallery img:hover{
+    transform: scale(1.05); /*カーソルが乗ったら1.05倍までおおきくなる*/
+}
+#profile{
+    p{
+        margin: 0 0 1rem;
+    }
+}
+#profile .float-box{
+    color: var(--black);
+    float: left;
+    margin-right: 1rem;
+    margin-bottom: 0.5rem;
+    vertical-align: baseline;
+}
+#profile .float-box img{
+    line-height: 0.5rem;
+}
+#ec{
+    text-align: center;/*中央寄せ*/
+}
+#ec .ec-list{
+    display: flex; 
+    flex-wrap: wrap; 
+    gap: 1.5rem; 
+    justify-content: center; 
+
+}
+.ec{
+    flex: 1 1 calc(33.333% -1rem);
+    background-color: var(--base);
+    border-radius:  12px; /*角丸*/
+    overflow: hidden; /*はみ出したら隠す*/
+    text-align: center;
+    min-width: 260px; /*最低でも260px以下にならないようにするサイトの表示を小さくしたときなど*/
+    max-width: 100%;
+}
+
+#contact{
+    background-repeat: no-repeat; /*画像を繰り返さない*/
+    color: var(--gray); /*文字の色を変数で指定*/
+    text-align: center;/*中央寄せ*/
+    line-height: 1.3rem;
+}
+#contact .contact-list{
+    line-height: 0.5rem;
+}
+#contact .card-contact{
+    display: flex; /*横並びに*/
+    gap: 1.5rem; /*余白開ける*/
+    justify-content: center; /*中央に*/ 
+} 
+#contact .contact-form{
+    max-width: 500px;
+    margin-inline: auto;
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+#contact .contact-form label{
+    display: flex;
+    flex-direction: column;
+    font-weight: 600;
+
+}
+#contact .contact-form label input{
+    padding: 0.8rem 1rem;
+    border: 1px solid #ccc;
+    border-radius:  8px;
+    font-size: 1rem;
+}
+#contact .contact-form label textarea{
+    padding: 0.8rem 1rem;
+    border: 1px solid #ccc;
+    border-radius:  8px;
+    font-size: 1rem;
+    transition: border-color 0.3s box-shadow 0.3s;
+}
+#contact .contact-form input:focus,
+#contact .contact-form textarea:focus{
+border-color: #ff60c2;
+outline: none;
+box-shadow: 0 0 0 3px rgba(255, 233, 255, 0.8);
+}
+.contact-form input,
+.contact-form textarea.invalid{
+    border-color: #b30303;
+}
+.contact-form .btn{
+    background-color: #ff60c2;
+    color: rgb(255, 255, 255);
+    padding: 0.9rem 0.2rem;
+    border: none;
+    border-radius: 8px;
+    font-size: 1rem;
+    cursor: pointer; 
+}
+.contact-form .btn:hover{
+    opacity: 0.8;
+}
+footer{
+    background-color: rgb(241, 65, 183,0.5);
+    text-align: center;
+    padding: 2rem 5vw;
+    font-size: 0.8rem;
+    color: var(--black);
+}
