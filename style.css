@@ -23,7 +23,7 @@ h2{
     font-size: clamp(1.8rem,5vw);
 }
 #header{
-    background-image: url(/com_header.png);
+    background-image: url(https://github.com/rina123-star/portfolio/blob/main/com_header.png?raw=true);
     padding: 22vh 5vw;
     background-size:  cover; /*100%画像の大きさを画面いっぱいに */
     background-repeat: no-repeat; /*画像を繰り返さない*/
